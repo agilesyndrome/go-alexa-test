@@ -82,6 +82,7 @@ func ExpectError(culture string, title string, text string, shouldEndSession boo
 func assertResponse(e ExpectedResponse, t *testing.T) {
    response, err := checkResponse(e.TestFile)
    expectedAlexaResponse := alexa.NewSimpleResponse(e.Title, e.Text)
+   expectedAlexaResponse.Body.ShouldEndSession = e.ShouldEndSession
    assert.IsType(t, alexa.Response{}, response)
    assert.Equal(t, expectedAlexaResponse, response)
    assert.Equal(t, e.ShouldEndSession, response.Body.ShouldEndSession)
