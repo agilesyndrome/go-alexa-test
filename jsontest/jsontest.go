@@ -20,6 +20,11 @@ func Add(tc string, e ExpectedResponse) {
   TestCases[tc] = e
 }
 
+func Similar(tc string, tc_dupe string) {
+  TestCases[tc] = TestCases[tc_dupe]
+}
+
+
 //Simple Helper function to assume that e is nil
 func check(e error) {
   if e != nil {
