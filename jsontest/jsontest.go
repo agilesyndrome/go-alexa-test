@@ -12,6 +12,8 @@ import (
   "github.com/agilesyndrome/go-alexa-i18n/alexai18n"
 )
 
+
+
 var (
  TestCases map[string] ExpectedResponse = map[string] ExpectedResponse{}
 )
@@ -23,7 +25,6 @@ func Add(tc string, e ExpectedResponse) {
 func Similar(tc string, tc_dupe string) {
   TestCases[tc] = TestCases[tc_dupe]
 }
-
 
 //Simple Helper function to assume that e is nil
 func check(e error) {
@@ -99,4 +100,8 @@ func RunTests(t *testing.T) {
   for k, _ := range TestCases {
     Run(k,t)
   }
+}
+
+func TestRun(t *testing.T) {
+  RunTests(t)
 }
